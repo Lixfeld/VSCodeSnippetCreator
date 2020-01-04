@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Debug.WriteLine</Title>
+			<Shortcut>dw</Shortcut>
+			<Description>Code snippet for System.Diagnostics.Debug.WriteLine</Description>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Delimiter="$" Language="CSharp"><![CDATA[$Debug$.WriteLine($end$);
+			]]></Code>
+			<Declarations>
+				<Literal Editable="false">
+					<ID>Debug</ID>
+					<Function>SimpleTypeName(System.Diagnostics.Debug)</Function>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

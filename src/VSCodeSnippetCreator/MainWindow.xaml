@@ -1,0 +1,135 @@
+﻿<local:MainWindowBase
+    x:Class="VSCodeSnippetCreator.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:metro="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:VSCodeSnippetCreator"
+    xmlns:rui="http://reactiveui.net"
+    mc:Ignorable="d"
+    MinWidth="750"
+    MinHeight="700"
+    Icon="InsertSnippet.ico"
+    ShowIconOnTitleBar="True"
+    WindowStartupLocation="CenterScreen"
+    Title="Visual Studio Code Snippet Creator" Height="800" Width="800">
+
+    <metro:MetroWindow.RightWindowCommands>
+        <metro:WindowCommands>
+            <Button x:Name="changeThemeButton">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="0 0 4 0" VerticalAlignment="Center" Text="Dark Mode" />
+                    <iconPacks:PackIconFontAwesome Kind="AdjustSolid"/>
+                </StackPanel>
+            </Button>
+        </metro:WindowCommands>
+    </metro:MetroWindow.RightWindowCommands>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <local:InputControl Text="Filename:">
+                <DockPanel>
+                    <Button x:Name="openCodeSnippetButton" 
+                            Content="Open code snippet"
+                            Margin="5 0 0 0"
+                            DockPanel.Dock="Right"/>
+                    <TextBlock x:Name="filenameTextBlock"
+                           VerticalAlignment="Center"/>
+                </DockPanel>
+            </local:InputControl>
+
+            <local:InputControl Text="Shortcut*:">
+                <TextBox x:Name="shortcutTextBox"/>
+            </local:InputControl>
+
+            <local:InputControl Text="Title*:">
+                <TextBox x:Name="titleTextBox"/>
+            </local:InputControl>
+
+            <local:InputControl Text="Description:">
+                <TextBox x:Name="descriptionTextBox"/>
+            </local:InputControl>
+
+            <local:InputControl Text="Author:">
+                <TextBox x:Name="authorTextBox"/>
+            </local:InputControl>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" x:Name="literalStackPanel">
+            <local:InputControl Text="Literal ID:" Margin="0 32 0 0">
+                <ComboBox x:Name="literalComboBox"
+                          ItemTemplate="{StaticResource TextBlockIdTemplate}"/>
+            </local:InputControl>
+
+            <local:LiteralView x:Name="literalView"/>
+        </StackPanel>
+
+        <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="0 5 0 0">
+            <StackPanel DockPanel.Dock="Top">
+                <TextBlock Text="Namespaces:" Margin="0 5"/>
+                <TextBox x:Name="namespacesTextBox"
+                         AcceptsReturn="True"
+                         Height="60"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0 5">
+                    <TextBlock Text="Code:" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="languageComboBox"
+                              Width="100"
+                              Margin="10 2"
+                              ItemTemplate="{StaticResource TextBlockTemplate}"/>
+                    <Button x:Name="addEndKeywordButton" 
+                        Content="Add $End$" 
+                        Margin="0 2"
+                        Click="CopyButton_Click"/>
+                    <Button x:Name="addSelectedKeywordButton" 
+                        Content="Add $Selected$"
+                        Margin="10 2"/>
+                </StackPanel>
+
+                <TextBox x:Name="codeTextBox"
+                     AcceptsReturn="True"
+                     AcceptsTab="True"
+                     Height="155"/>
+            </StackPanel>
+
+            <DockPanel Margin="0 5" DockPanel.Dock="Top">
+                <TextBlock Text="Code Snippet:" VerticalAlignment="Center"/>
+                <Button x:Name="createSnippetButton"
+                        Content="Create Snippet"
+                        Margin="10 2"/>
+                <Button x:Name="copyButton" 
+                        Content="Copy Text" 
+                        Margin="0 2" 
+                        Click="CopyButton_Click"/>
+                <Button x:Name="exportSnippetButton" 
+                        Content="Export Snippet"
+                        Margin="10 2"/>
+                <Button x:Name="selectExportPathButton"
+                        DockPanel.Dock="Right"
+                        Margin="2"
+                        Width="30"
+                        Content=". . ."/>
+                <TextBox x:Name="exportFolder" 
+                         Margin="0 2"
+                         Style="{StaticResource ReadOnlyTextBox}"/>
+            </DockPanel>
+
+            <TextBox x:Name="snippetTextBox"
+                     DockPanel.Dock="Bottom"
+                     Style="{StaticResource ReadOnlyTextBox}"/>
+
+        </DockPanel>
+    </Grid>
+</local:MainWindowBase>

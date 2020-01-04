@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>DesignStyle in XAML</Title>
+			<Shortcut>designStyle</Shortcut>
+			<Description>Code snippet for DesignerProperties.DesignStyle</Description>
+			<Author>Lixfeld</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Delimiter="$" Language="XAML"><![CDATA[    <d:DesignerProperties.DesignStyle>
+        <Style TargetType="$control$">
+            <Style.Setters>
+                <Setter Property="Background" Value="$color$" />
+            </Style.Setters>
+        </Style>
+    </d:DesignerProperties.DesignStyle>]]></Code>
+			<Declarations>
+				<Literal Editable="true">
+					<ID>color</ID>
+					<Default>LightGray</Default>
+				</Literal>
+				<Literal Editable="false">
+					<ID>control</ID>
+					<Default>UserControl</Default>
+					<ToolTip>UserControl</ToolTip>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
