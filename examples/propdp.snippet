@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>Define a DependencyProperty</Title>
+			<Shortcut>propdp</Shortcut>
+			<Description>Code snippet for a property using DependencyProperty as the backing store</Description>
+			<Author>Microsoft Corporation</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Code Delimiter="$" Language="CSharp"><![CDATA[public $type$ $property$
+{
+    get => ($type$)GetValue($property$Property);
+    set => SetValue($property$Property, value);
+}
+
+// Using a DependencyProperty as the backing store for $property$.  This enables animation, styling, binding, etc...
+public static readonly DependencyProperty $property$Property = DependencyProperty
+	.Register(nameof($property$), typeof($type$), typeof($ownerclass$), new PropertyMetadata($defaultvalue$));$end$]]></Code>
+			<Imports>
+				<Import>
+					<Namespace>System.Windows</Namespace>
+				</Import>
+			</Imports>
+			<Declarations>
+				<Literal Editable="true">
+					<ID>type</ID>
+					<Default>int</Default>
+					<ToolTip>Property Type</ToolTip>
+				</Literal>
+				<Literal Editable="true">
+					<ID>property</ID>
+					<Default>MyProperty</Default>
+					<ToolTip>Property Name</ToolTip>
+				</Literal>
+				<Literal Editable="false">
+					<ID>ownerclass</ID>
+					<Default>ownerclass</Default>
+					<ToolTip>The owning class of this Property.  Typically the class that it is declared in.</ToolTip>
+					<Function>ClassName()</Function>
+				</Literal>
+				<Literal Editable="true">
+					<ID>defaultvalue</ID>
+					<Default>0</Default>
+					<ToolTip>The default value for this property.</ToolTip>
+				</Literal>
+			</Declarations>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

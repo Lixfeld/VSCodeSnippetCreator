@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VSCodeSnippetCreator", "VSCodeSnippetCreator\VSCodeSnippetCreator.csproj", "{7B34DB5D-2CCC-4F26-8679-F9A71DE11D2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VSCodeSnippetCreator.Core", "VSCodeSnippetCreator.Core\VSCodeSnippetCreator.Core.csproj", "{64896024-58B5-4524-9CA4-529CCF58030C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B34DB5D-2CCC-4F26-8679-F9A71DE11D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B34DB5D-2CCC-4F26-8679-F9A71DE11D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B34DB5D-2CCC-4F26-8679-F9A71DE11D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B34DB5D-2CCC-4F26-8679-F9A71DE11D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64896024-58B5-4524-9CA4-529CCF58030C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64896024-58B5-4524-9CA4-529CCF58030C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64896024-58B5-4524-9CA4-529CCF58030C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64896024-58B5-4524-9CA4-529CCF58030C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A69F7A1-F254-4A71-821A-303256C22E40}
+	EndGlobalSection
+EndGlobal
