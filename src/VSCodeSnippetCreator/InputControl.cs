@@ -11,8 +11,13 @@ namespace VSCodeSnippetCreator
             set => SetValue(TextProperty, value);
         }
 
-        // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextProperty = DependencyProperty
             .Register(nameof(Text), typeof(string), typeof(InputControl), new PropertyMetadata(string.Empty));
+
+        public InputControl()
+        {
+            //Disable TabNavigation
+            IsTabStop = false;
+        }
     }
 }

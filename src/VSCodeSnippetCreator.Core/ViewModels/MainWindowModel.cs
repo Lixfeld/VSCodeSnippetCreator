@@ -217,11 +217,12 @@ namespace VSCodeSnippetCreator.Core.ViewModels
                 if (codeSnippetPath != null)
                 {
                     string fileContent = File.ReadAllText(codeSnippetPath);
+                    //Deserialize Format 1.0.0
                     CodeSnippets codeSnippets = CodeSnippets.Deserialize(fileContent);
 
                     if (codeSnippets == null)
                     {
-                        //Try convert codeSnippet
+                        //Deserialize Format 1.1.0
                         CodeSnippet codeSnippet = CodeSnippet.Deserialize(fileContent);
                         if (codeSnippet != null)
                         {
@@ -313,7 +314,7 @@ namespace VSCodeSnippetCreator.Core.ViewModels
                     }
                 }
 
-                string codeSnippetsText = CreateCodeSnippets();
+                SnippetText = CreateCodeSnippets();
                 string filePath = Path.Combine(ExportFolder, FileName);
                 if (File.Exists(filePath))
                 {
@@ -321,7 +322,7 @@ namespace VSCodeSnippetCreator.Core.ViewModels
                     if (await ConfirmOverwritingInteraction.Handle(warningMessage) == false)
                         return;
                 }
-                File.WriteAllText(filePath, codeSnippetsText);
+                File.WriteAllText(filePath, SnippetText);
 
                 var successContent = new MessageBoxContent("Info", $"The file {FileName} was saved successfully.");
                 await ShowMessageInteraction.Handle(successContent);
