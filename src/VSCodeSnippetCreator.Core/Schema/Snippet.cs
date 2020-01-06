@@ -14,6 +14,5 @@ namespace VSCodeSnippetCreator.Core.Schema
 
         public bool ShouldSerializeImports() => Imports?.Count > 0;
         public bool ShouldSerializeDeclarations() => Declarations?.Count > 0;
-        public bool ShouldSerializeCode() => !string.IsNullOrWhiteSpace(Code?.Data);
     }
 }
