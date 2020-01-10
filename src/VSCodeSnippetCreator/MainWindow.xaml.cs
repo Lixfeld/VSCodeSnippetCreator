@@ -97,14 +97,10 @@ namespace VSCodeSnippetCreator
                 //WhenAny
                 d(this
                     .WhenAnyValue(x => x.ViewModel.CacheCount)
-                    .Where(count => count >= 1)
-                    .Do(_ => literalStackPanel.IsEnabled = true)
+                    .Select(count => count >= 1)
+                    .Do(isEnabled => literalStackPanel.IsEnabled = isEnabled)
+                    .Where(isEnabled => isEnabled)
                     .Subscribe(_ => literalComboBox.SelectedIndex = 0));
-
-                d(this
-                    .WhenAnyValue(x => x.ViewModel.CacheCount)
-                    .Where(count => count <= 0)
-                    .Subscribe(_ => literalStackPanel.IsEnabled = false));
 
                 //Events
                 d(changeThemeButton.Events()

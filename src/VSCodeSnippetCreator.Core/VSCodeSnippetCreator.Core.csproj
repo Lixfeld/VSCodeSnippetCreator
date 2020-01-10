@@ -7,9 +7,9 @@
   <ItemGroup>
     <PackageReference Include="MahApps.Metro" Version="1.6.5" />
     <PackageReference Include="MahApps.Metro.IconPacks.FontAwesome" Version="3.0.1" />
-    <PackageReference Include="ReactiveUI.Events.WPF" Version="11.0.1" />
-    <PackageReference Include="ReactiveUI.Fody" Version="10.5.43" />
-    <PackageReference Include="ReactiveUI.WPF" Version="10.5.43" />
+    <PackageReference Include="ReactiveUI.Events.WPF" Version="11.1.6" />
+    <PackageReference Include="ReactiveUI.Fody" Version="11.1.6" />
+    <PackageReference Include="ReactiveUI.WPF" Version="11.1.6" />
     <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
   </ItemGroup>
   <ItemGroup>
