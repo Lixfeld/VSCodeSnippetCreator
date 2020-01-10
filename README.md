@@ -5,7 +5,7 @@ Create and edit code snippets for Visual Studio IDE in C#, XAML and more.
 # Export Snippets
 - Choose an export folder in the application
 - Add the folder in Visual Studio: Tools -> Code Snippets Manager... -> Language
-- Create/Edit your snippet and press 'Export Snippet'
+- Create/Edit your snippet and press 'Export Snippet' (run as administrator if necessary) 
 - Type the snippet shortcut and press TAB twice
 
 ![Application Image](screenshoots/Application.PNG)

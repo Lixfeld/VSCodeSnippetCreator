@@ -249,7 +249,9 @@ namespace VSCodeSnippetCreator.Core.ViewModels
                     CodeText = snippet.Code.Data;
                     SelectedLanguage = snippet.Code.LanguageEnum;
 
-                    IEnumerable<LiteralViewModel> literalViewModels = snippet.Declarations.Select(l => new LiteralViewModel(l));
+                    IEnumerable<LiteralViewModel> literalViewModels = snippet.Declarations
+                        .Where(l => !string.IsNullOrWhiteSpace(l.ID))
+                        .Select(l => new LiteralViewModel(l));
 
                     _sourceCache.Clear();
                     _sourceCache.Edit(innerlist =>
@@ -264,7 +266,7 @@ namespace VSCodeSnippetCreator.Core.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine("Error: Read code snippets. " + ex.Message);
-                var content = new MessageBoxContent("Error", "Could not read code snippet!");
+                var content = new MessageBoxContent("Error", "Could not read complete code snippet successfully!");
                 await ShowMessageInteraction.Handle(content);
                 return;
             }
@@ -330,7 +332,8 @@ namespace VSCodeSnippetCreator.Core.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine("Error: Export code snippets. " + ex.Message);
-                var errorContent = new MessageBoxContent("Error", $"The file {FileName} could NOT be saved!");
+                var errorContent = new MessageBoxContent(
+                    "Error", $"The file {FileName} could NOT be saved!" + Environment.NewLine + @"Possible solution: ""Run as administrator""");
                 await ShowMessageInteraction.Handle(errorContent);
             }
             return;
