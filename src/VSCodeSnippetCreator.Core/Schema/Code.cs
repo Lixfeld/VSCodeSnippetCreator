@@ -35,6 +35,7 @@ namespace VSCodeSnippetCreator.Core.Schema
             set => Data = value?.FirstOrDefault()?.Value;
         }
 
+        public bool ShouldSerializeDelimiter() => !string.IsNullOrWhiteSpace(Delimiter) && Delimiter != "$";
         public bool ShouldSerializeLanguage() => LanguageEnum != Core.Language.None;
         public bool ShouldSerializeData() => !string.IsNullOrWhiteSpace(Data);
     }
