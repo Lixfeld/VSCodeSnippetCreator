@@ -32,6 +32,7 @@ namespace VSCodeSnippetCreator.Core.Schema
             }
         }
 
+        public bool ShouldSerializeEditable() => Editable == false;
         public bool ShouldSerializeToolTip() => !string.IsNullOrWhiteSpace(ToolTip);
         public bool ShouldSerializeFunction() => !string.IsNullOrWhiteSpace(Function);
         public bool ShouldSerializeDefault()
