@@ -77,10 +77,10 @@ namespace VSCodeSnippetCreator.Core.ViewModels
 
         public ReactiveCommand<Unit, Unit> AddSelectedKeyword { get; }
 
-        public Interaction<string, string> ChooseFileInteraction => new Interaction<string, string>();
-        public Interaction<Unit, string> ChooseFolderInteraction => new Interaction<Unit, string>();
-        public Interaction<string, bool> ConfirmOverwritingInteraction => new Interaction<string, bool>();
-        public Interaction<MessageBoxContent, Unit> ShowMessageInteraction => new Interaction<MessageBoxContent, Unit>();
+        public Interaction<string, string> ChooseFileInteraction { get; } = new Interaction<string, string>();
+        public Interaction<Unit, string> ChooseFolderInteraction { get; } = new Interaction<Unit, string>();
+        public Interaction<string, bool> ConfirmOverwritingInteraction { get; } = new Interaction<string, bool>();
+        public Interaction<MessageBoxContent, Unit> ShowMessageInteraction { get; } = new Interaction<MessageBoxContent, Unit>();
 
         public MainWindowModel()
         {
@@ -145,7 +145,6 @@ namespace VSCodeSnippetCreator.Core.ViewModels
             AddSelectedKeyword = ReactiveCommand.Create(() =>
             {
                 CodeText = CodeText.Insert(CodeTextPositionIndex, Keyword.WithDelimiters.Selected);
-
             }, canExecuteSelected);
 
             ChooseExportFolder = ReactiveCommand.CreateFromObservable(() => ChooseFolderInteraction.Handle(Unit.Default));
